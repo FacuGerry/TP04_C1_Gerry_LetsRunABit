@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40e5d2545a75ff4fa72aae13e85e5e5, type: 3}
+  m_Name: ObstaclesSettings
+  m_EditorClassIdentifier: 
+  circle: {fileID: 7795015377646383863, guid: 8f0ae49ee9b55224a8e28b7e54039562, type: 3}
+  square: {fileID: 6131346753634338492, guid: e271f646d754bc24da9c6a38a9cf0f5a, type: 3}
+  spawnTime: 5
+  firstSpawn: 7
+  obstaclesSpeed: 500
+  circleColl: {fileID: 5894328794199299113, guid: 8f0ae49ee9b55224a8e28b7e54039562, type: 3}
+  squareColl: {fileID: 4663828689889497803, guid: e271f646d754bc24da9c6a38a9cf0f5a, type: 3}
+  circleRb: {fileID: 5388587045763344330, guid: 8f0ae49ee9b55224a8e28b7e54039562, type: 3}
+  squareRb: {fileID: 6907430890481591064, guid: e271f646d754bc24da9c6a38a9cf0f5a, type: 3}
+  circleTrans: {fileID: 1848691937961405204, guid: 8f0ae49ee9b55224a8e28b7e54039562, type: 3}
+  squareTrans: {fileID: 1052869105988959626, guid: e271f646d754bc24da9c6a38a9cf0f5a, type: 3}
