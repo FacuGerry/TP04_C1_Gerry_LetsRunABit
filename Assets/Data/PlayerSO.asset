@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40e5d2545a75ff4fa72aae13e85e5e5, type: 3}
-  m_Name: ObstaclesSettings
+  m_Script: {fileID: 11500000, guid: ee100129f55d22d47a47725681e0c6bc, type: 3}
+  m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  spawnTime: 5
-  firstSpawn: 7
-  speedChanger: 20
-  obstaclesSpeed: 1200
-  firstSpeedChange: 10
-  speedChangeTime: 10
+  playerJumpForce: 11
+  jump: 323

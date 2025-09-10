@@ -5,28 +5,16 @@ public class ObstaclesManager : MonoBehaviour
     [SerializeField] private ObstaclesSO obsSO;
 
     [Header("Obstacles")]
-    public GameObject circle;
-    public GameObject square;
-
-    private Collider2D circleColl;
-    private Collider2D squareColl;
+    [SerializeField] private GameObject circle;
+    [SerializeField] private GameObject square;
 
     private Rigidbody2D circleRb;
     private Rigidbody2D squareRb;
-    
-    private Transform circleTrans;
-    private Transform squareTrans;
 
     private void Awake()
     {
-        circleColl = circle.GetComponent<Collider2D>();
-        squareColl = square.GetComponent<Collider2D>();
-
         circleRb = circle.GetComponent<Rigidbody2D>();
         squareRb = square.GetComponent<Rigidbody2D>();
-
-        circleTrans = circle.GetComponent<Transform>();
-        squareTrans = square.GetComponent<Transform>();
     }
 
     void Start()
@@ -36,7 +24,7 @@ public class ObstaclesManager : MonoBehaviour
 
     void Update()
     {
-        ObstaclesSpeed(obsSO.obstaclesSpeed);
+        ObstaclesSpeed();
     }
 
     private void ObstaclesSpawn()
@@ -53,11 +41,11 @@ public class ObstaclesManager : MonoBehaviour
         }
     }
 
-    private void ObstaclesSpeed(float speed)
+    private void ObstaclesSpeed()
     {
         if (circle == true)
         {
-            circleRb.velocity = Time.deltaTime * new Vector2(-speed, 0);
+            circleRb.velocity = Time.deltaTime * new Vector2(-obsSO.obstaclesSpeed, 0);
         }
         else
         {
@@ -65,12 +53,17 @@ public class ObstaclesManager : MonoBehaviour
         }
         if (square == true)
         {
-            squareRb.velocity = Time.deltaTime * new Vector2(-speed, 0);
+            squareRb.velocity = Time.deltaTime * new Vector2(-obsSO.obstaclesSpeed, 0);
         }
         else
         {
             squareRb.velocity = Time.deltaTime * new Vector2(0, 0);
         }
+        SpeedModifier(obsSO.obstaclesSpeed);
+    }
 
+    private void SpeedModifier(float speed)
+    {
+        speed += obsSO.speedChanger;
     }
 }
