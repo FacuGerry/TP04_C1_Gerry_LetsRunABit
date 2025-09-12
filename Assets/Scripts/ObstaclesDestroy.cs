@@ -12,6 +12,9 @@ public class ObstaclesDestroy : MonoBehaviour
     private Transform circleTrans;
     private Transform squareTrans;
 
+    private Vector2 circlePos;
+    private Vector2 squarePos;
+
     void Awake()
     {
         circleColl = circle.GetComponent<Collider2D>();
@@ -19,6 +22,9 @@ public class ObstaclesDestroy : MonoBehaviour
 
         circleTrans = circle.GetComponent<Transform>();
         squareTrans = square.GetComponent<Transform>();
+
+        circlePos = circleTrans.transform.position;
+        squarePos = squareTrans.transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -26,12 +32,12 @@ public class ObstaclesDestroy : MonoBehaviour
         if (collision.collider == circleColl)
         {
             circle.SetActive(false);
-            circleTrans.position = new Vector2(11, -4);
+            circleTrans.position = circlePos;
         }
         if (collision.collider == squareColl)
         {
             square.SetActive(false);
-            squareTrans.position = new Vector2(11, -4);
+            squareTrans.position = squarePos;
         }
     }
 }

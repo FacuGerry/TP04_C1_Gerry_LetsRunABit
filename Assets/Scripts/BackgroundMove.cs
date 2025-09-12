@@ -9,8 +9,6 @@ public class BackgroundMove : MonoBehaviour
     private Vector2 startPos;
     private float width;
 
-    public float movingSpeed;
-
     void Start()
     {
         startPos = transform.position;
