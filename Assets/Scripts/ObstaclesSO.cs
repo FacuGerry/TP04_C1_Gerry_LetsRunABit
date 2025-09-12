@@ -9,9 +9,6 @@ public class ObstaclesSO : ScriptableObject
     public float firstSpawn;
 
     [Header("Speed settings")]
+    public Vector2 obstaclesInitSpeed;
     public float speedChanger;
-    public float obstaclesSpeed;
-    public float firstSpeedChange;
-    public float speedChangeTime;
-
 }

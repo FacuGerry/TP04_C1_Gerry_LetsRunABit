@@ -1,25 +1,50 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerSO playerSO;
+    [SerializeField] private LoseScreen loseScreen;
+    [SerializeField] private GameObject floor;
+
     private Rigidbody2D playerRb;
+    private Collider2D floorColl;
+
+    private bool isOnGround = true;
 
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        floorColl = floor.GetComponent<Collider2D>();
+        Physics2D.gravity *= playerSO.gravityModifier;
     }
 
-    void Update()
+    private void Update()
     {
         Jumping();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider == floorColl)
+        {
+            isOnGround = true;
+        }
+        else if (collision.collider == null) {}
+        else
+        {
+            gameObject.SetActive(false);
+            Time.timeScale = 0;
+            loseScreen.LoseScreenAppear();
+        }
+    }
+
     public void Jumping()
     {
-        if (Input.GetKeyDown(playerSO.jump))
+        if (Input.GetKey(playerSO.jump) && isOnGround)
         {
-            playerRb.AddForce(new Vector2(0, playerSO.playerJumpForce), ForceMode2D.Impulse);
+            playerRb.AddForce(Vector2.up * playerSO.jumpForce, ForceMode2D.Impulse);
+            isOnGround = false;
         }
     }
 }

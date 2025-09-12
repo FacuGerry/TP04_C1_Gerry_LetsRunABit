@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesDestroy : MonoBehaviour
@@ -28,12 +26,12 @@ public class ObstaclesDestroy : MonoBehaviour
         if (collision.collider == circleColl)
         {
             circle.SetActive(false);
-            circleTrans.position = new Vector2(11, 0);
+            circleTrans.position = new Vector2(11, -4);
         }
         if (collision.collider == squareColl)
         {
             square.SetActive(false);
-            squareTrans.position = new Vector2(11, 0);
+            squareTrans.position = new Vector2(11, -4);
         }
     }
 }

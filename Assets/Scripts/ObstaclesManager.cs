@@ -11,8 +11,11 @@ public class ObstaclesManager : MonoBehaviour
     private Rigidbody2D circleRb;
     private Rigidbody2D squareRb;
 
+    public Vector2 obstaclesSpeed;
+
     private void Awake()
     {
+        obstaclesSpeed = obsSO.obstaclesInitSpeed;
         circleRb = circle.GetComponent<Rigidbody2D>();
         squareRb = square.GetComponent<Rigidbody2D>();
     }
@@ -22,12 +25,12 @@ public class ObstaclesManager : MonoBehaviour
         InvokeRepeating("ObstaclesSpawn", obsSO.firstSpawn, obsSO.spawnTime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         ObstaclesSpeed();
     }
 
-    private void ObstaclesSpawn()
+    public void ObstaclesSpawn()
     {
         float dice = Random.value;
 
@@ -41,29 +44,29 @@ public class ObstaclesManager : MonoBehaviour
         }
     }
 
-    private void ObstaclesSpeed()
+    public void ObstaclesSpeed()
     {
         if (circle == true)
         {
-            circleRb.velocity = Time.deltaTime * new Vector2(-obsSO.obstaclesSpeed, 0);
+            circleRb.velocity = Time.fixedDeltaTime * -obstaclesSpeed;
         }
         else
         {
-            circleRb.velocity = Time.deltaTime * new Vector2(0, 0);
+            circleRb.velocity = Time.fixedDeltaTime * new Vector2(0, 0);
         }
         if (square == true)
         {
-            squareRb.velocity = Time.deltaTime * new Vector2(-obsSO.obstaclesSpeed, 0);
+            squareRb.velocity = Time.fixedDeltaTime * -obstaclesSpeed;
         }
         else
         {
-            squareRb.velocity = Time.deltaTime * new Vector2(0, 0);
+            squareRb.velocity = Time.fixedDeltaTime * new Vector2(0, 0);
         }
-        SpeedModifier(obsSO.obstaclesSpeed);
+        SpeedModifier();
     }
 
-    private void SpeedModifier(float speed)
+    public void SpeedModifier()
     {
-        speed += obsSO.speedChanger;
+        obstaclesSpeed += new Vector2(obsSO.speedChanger, 0);
     }
 }

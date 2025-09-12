@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ObstaclesSettings
   m_EditorClassIdentifier: 
   spawnTime: 5
-  firstSpawn: 7
-  speedChanger: 20
-  obstaclesSpeed: 1200
-  firstSpeedChange: 10
-  speedChangeTime: 10
+  firstSpawn: 5
+  obstaclesInitSpeed: {x: 700, y: 0}
+  speedChanger: 0.1
+  gravityModifier: 0

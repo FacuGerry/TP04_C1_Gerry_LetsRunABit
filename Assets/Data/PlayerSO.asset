@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee100129f55d22d47a47725681e0c6bc, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  playerJumpForce: 11
+  jumpForce: 12
+  gravityModifier: 1.5
   jump: 323
