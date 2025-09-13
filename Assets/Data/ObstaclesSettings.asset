@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40e5d2545a75ff4fa72aae13e85e5e5, type: 3}
   m_Name: ObstaclesSettings
   m_EditorClassIdentifier: 
-  spawnTime: 5
+  spawnTime: 2
   firstSpawn: 5
   obstaclesInitSpeed: {x: 700, y: 0}
   speedChanger: 0.1
-  gravityModifier: 0
