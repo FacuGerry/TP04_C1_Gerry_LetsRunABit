@@ -6,9 +6,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private LoseScreen loseScreen;
     [SerializeField] private GameObject floor;
+    [SerializeField] private AudioClip jumpAudio;
 
     private Rigidbody2D playerRb;
     private Collider2D floorColl;
+    private AudioSource playerAudio;
 
     private bool isOnGround = true;
 
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         floorColl = floor.GetComponent<Collider2D>();
+        playerAudio = GetComponent<AudioSource>();
         Physics2D.gravity *= playerSO.gravityModifier;
     }
 
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(playerSO.jump) && isOnGround)
         {
+            playerAudio.PlayOneShot(jumpAudio);
             playerRb.AddForce(Vector2.up * playerSO.jumpForce, ForceMode2D.Impulse);
             isOnGround = false;
         }

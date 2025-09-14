@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ScoreSO
   m_EditorClassIdentifier: 
   scoreInit: 0
-  scoreMult: 9.75
+  scoreMult: 10
+  scoreXtra: 0
