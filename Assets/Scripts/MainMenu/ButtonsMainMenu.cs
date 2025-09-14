@@ -11,11 +11,12 @@ public class ButtonsMainMenu : MonoBehaviour
     [SerializeField] private Button creditsBtn;
     [SerializeField] private Button exitBtn;
 
-    void Start()
+    void Awake()
     {
         playBtn.onClick.AddListener(OnPlayClicked);
         creditsBtn.onClick.AddListener(OnCreditsClicked);
         exitBtn.onClick.AddListener(OnExitClicked);
+        Time.timeScale = 1;
     }
 
     private void OnDestroy()

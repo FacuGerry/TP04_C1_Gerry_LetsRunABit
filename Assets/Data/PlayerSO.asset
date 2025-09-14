@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 12
   gravityModifier: 1.5
+  gravity: {x: 0, y: -9.81}
   jump: 323

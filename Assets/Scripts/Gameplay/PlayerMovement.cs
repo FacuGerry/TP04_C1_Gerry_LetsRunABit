@@ -19,7 +19,11 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         floorColl = floor.GetComponent<Collider2D>();
         playerAudio = GetComponent<AudioSource>();
+        Physics2D.gravity = playerSO.gravity;
         Physics2D.gravity *= playerSO.gravityModifier;
+
+        gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -44,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jumping()
     {
-        if (Input.GetKey(playerSO.jump) && isOnGround)
+        if (Input.GetKey(playerSO.jump) && isOnGround && Time.timeScale == 1)
         {
             playerAudio.PlayOneShot(jumpAudio);
             playerRb.AddForce(Vector2.up * playerSO.jumpForce, ForceMode2D.Impulse);
