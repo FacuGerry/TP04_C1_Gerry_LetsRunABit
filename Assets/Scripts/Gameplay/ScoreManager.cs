@@ -1,4 +1,3 @@
-using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 
@@ -21,10 +20,10 @@ public class ScoreManager : MonoBehaviour
     void FixedUpdate()
     {
         score += Time.fixedDeltaTime * scoreSO.scoreMult;
-        scoreText.text = score.ToString("0");
-        if (score % 100 >= 0.8f && score % 100 < 1f && score > 10)
+        if ((score % 100) < 1 && score > 50)
         {
             scoreAudio.PlayOneShot(scoreSound);
         }
+        scoreText.text = score.ToString("0");
     }
 }

@@ -1,6 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsScreen : MonoBehaviour
@@ -14,15 +14,10 @@ public class SettingsScreen : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    [Header("Texts")]
-    [SerializeField] private TextMeshProUGUI masterText;
-    [SerializeField] private TextMeshProUGUI musicText;
-    [SerializeField] private TextMeshProUGUI sfxText;
-
     [Header("Audios")]
-    [SerializeField] private AudioBehaviour master;
-    [SerializeField] private AudioBehaviour music;
-    [SerializeField] private AudioBehaviour sfx;
+    [SerializeField] private AudioMixer master;
+    [SerializeField] private AudioMixer music;
+    [SerializeField] private AudioMixer sfx;
 
     [Header("Button")]
     [SerializeField] private Button backBtn;
@@ -30,6 +25,7 @@ public class SettingsScreen : MonoBehaviour
     void Awake()
     {
         backBtn.onClick.AddListener(BackClicked);
+
     }
 
     private void Update()
@@ -48,20 +44,19 @@ public class SettingsScreen : MonoBehaviour
         musicSlider.onValueChanged.AddListener(musicChanged);
         sfxSlider.onValueChanged.AddListener(sfxChanged);
     }
-
-    private void sfxChanged(float vol)
+    private void masterChanged(float vol)
     {
-
+        master.SetFloat("MasterVol", vol);
     }
 
     private void musicChanged(float vol)
     {
-
+        music.SetFloat("GameVol", vol);
     }
 
-    private void masterChanged(float vol)
+    private void sfxChanged(float vol)
     {
-
+        sfx.SetFloat("SFXVol", vol);
     }
 
     public void BackClicked()
