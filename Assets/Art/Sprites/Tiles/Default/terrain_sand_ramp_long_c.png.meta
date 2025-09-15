@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_sand_ramp_long_c_0: 3837228681758687278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

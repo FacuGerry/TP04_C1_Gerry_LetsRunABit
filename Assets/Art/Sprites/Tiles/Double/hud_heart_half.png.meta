@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hud_heart_half_0: -9196281609273825190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

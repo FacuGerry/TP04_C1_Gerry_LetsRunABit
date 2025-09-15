@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_purple_block_left_0: 2468965377079790565
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

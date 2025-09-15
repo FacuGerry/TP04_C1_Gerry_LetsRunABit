@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_stone_block_left_0: 2250000177406618354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

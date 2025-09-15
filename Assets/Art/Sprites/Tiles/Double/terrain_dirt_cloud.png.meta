@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_dirt_cloud_0: -4658388108239846603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

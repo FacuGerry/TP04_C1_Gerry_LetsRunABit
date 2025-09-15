@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_sand_cloud_left_0: -3032510560314715322
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

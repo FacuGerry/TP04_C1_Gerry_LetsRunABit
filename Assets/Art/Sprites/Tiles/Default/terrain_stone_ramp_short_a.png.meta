@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_stone_ramp_short_a_0: 3488500468403925841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

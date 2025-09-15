@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_snow_block_right_0: 8522905030957506800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

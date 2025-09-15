@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_grass_ramp_short_a_0: 875190419077513194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

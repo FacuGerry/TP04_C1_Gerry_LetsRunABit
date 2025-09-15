@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      terrain_grass_block_bottom_0: -8031356342963110580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hud_player_helmet_beige_0: 4249625057434079675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
