@@ -5,16 +5,16 @@ public class BackgroundMove : MonoBehaviour
 {
     [SerializeField] private ObstaclesManager obsMng;
     public float parallaxFX;
-    
-    private Rigidbody2D rb;
+
+    private Rigidbody2D backgroundRb;
     private Vector2 startPos;
     private float width;
 
-    void Start()
+    void Awake()
     {
+        backgroundRb = GetComponent<Rigidbody2D>();
+
         startPos = transform.position;
-        width = GetComponent<BoxCollider2D>().size.x / 2;
-        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -29,7 +29,7 @@ public class BackgroundMove : MonoBehaviour
 
     public void MoveLeft()
     {
-        rb.velocity = (-obsMng.obstaclesSpeed / parallaxFX) * Time.fixedDeltaTime;
+        backgroundRb.velocity = (-obsMng.obstaclesSpeed / parallaxFX) * Time.fixedDeltaTime;
     }
 
     public void Restart()
