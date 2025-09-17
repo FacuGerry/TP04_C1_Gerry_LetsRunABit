@@ -7,10 +7,6 @@ public class ObstaclesDestroy : MonoBehaviour
     [SerializeField] private GameObject saw;
     [SerializeField] private GameObject cactus;
 
-    private Collider2D spikesColl;
-    private Collider2D sawColl;
-    private Collider2D cactusColl;
-
     private Transform spikesTrans;
     private Transform sawTrans;
     private Transform cactusTrans;
@@ -19,12 +15,10 @@ public class ObstaclesDestroy : MonoBehaviour
     private Vector2 sawPos;
     private Vector2 cactusPos;
 
+    public float maxPos;
+
     void Awake()
     {
-        spikesColl = spikes.GetComponent<Collider2D>();
-        sawColl = saw.GetComponent<Collider2D>();
-        cactusColl = cactus.GetComponent<Collider2D>();
-
         spikesTrans = spikes.GetComponent<Transform>();
         sawTrans = saw.GetComponent<Transform>();
         cactusTrans = cactus.GetComponent<Transform>();
@@ -34,19 +28,19 @@ public class ObstaclesDestroy : MonoBehaviour
         cactusPos = cactusTrans.transform.position;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.collider == spikesColl)
+        if (spikesTrans.position.x < maxPos)
         {
             spikes.SetActive(false);
             spikesTrans.position = spikesPos;
         }
-        if (collision.collider == sawColl)
+        if (sawTrans.position.x < maxPos)
         {
             saw.SetActive(false);
             sawTrans.position = sawPos;
         }
-        if (collision.collider == cactusColl)
+        if (cactusTrans.position.x < maxPos)
         {
             cactus.SetActive(false);
             cactusTrans.position = cactusPos;

@@ -52,20 +52,6 @@ public class ObstaclesManager : MonoBehaviour
         }
     }
 
-    public void ExtraObstacles()
-    {
-        /*for (int i = 0; i < 3; i++)
-        {
-            GameObject newGO = Instantiate();
-            newGO.name = "saw" + i;
-            saw[i] = newGO;
-        }*/
-
-
-
-
-    }
-
     public void ObstaclesSpeed()
     {
         if (spike == true)
