@@ -11,23 +11,23 @@ namespace Clase06
 
         private float size = 0;
 
-        private void Start ()
+        private void Start()
         {
             size = spriteRenderers[0].bounds.size.x;
             for (int i = 0; i < spriteRenderers.Count; i++)
             {
-                Vector3 pos = new Vector3(size * i, spriteRenderers[i].transform.position.y, 0);
-                spriteRenderers[i].transform.position = pos;
+                    Vector3 pos = new Vector3(size * i, spriteRenderers[i].transform.position.y, 0);
+                    spriteRenderers[i].transform.position = pos;
             }
         }
 
-        private void Update ()
+        private void Update()
         {
             MoveBackground();
             FixBackgroundPosition();
         }
 
-        private void MoveBackground ()
+        private void MoveBackground()
         {
             for (int i = 0; i < spriteRenderers.Count; i++)
             {
@@ -37,7 +37,7 @@ namespace Clase06
             }
         }
 
-        private void FixBackgroundPosition ()
+        private void FixBackgroundPosition()
         {
             for (int i = 0; i < spriteRenderers.Count; i++)
             {

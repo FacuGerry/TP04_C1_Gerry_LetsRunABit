@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTime: 1.5
   firstSpawn: 1
-  obstaclesInitSpeed: {x: 700, y: 0}
+  obstaclesInitSpeed: {x: 500, y: 0}
   speedChanger: 0.1

@@ -707,7 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5032c2dfab3d74b896b42037e61c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 350, y: 0}
+  obsSO: {fileID: 11400000, guid: e80a3e1b60e06ca4c922187b52461f00, type: 2}
+  effect: {x: 5, y: 1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

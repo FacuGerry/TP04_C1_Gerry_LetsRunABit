@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class BackgroundMoveMainMenu : MonoBehaviour
 {
-    public Vector2 speed;
+    [SerializeField] ObstaclesSO obsSO;
+    public Vector2 effect = Vector2.one;
     
     private Rigidbody2D rb;
     private Vector2 startPos;
@@ -27,7 +28,7 @@ public class BackgroundMoveMainMenu : MonoBehaviour
 
     public void MoveLeft()
     {
-        rb.velocity = -speed * Time.fixedDeltaTime;
+        rb.velocity = (-obsSO.obstaclesInitSpeed / effect) * Time.fixedDeltaTime;
     }
 
     public void Restart()
