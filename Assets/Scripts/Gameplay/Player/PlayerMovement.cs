@@ -48,13 +48,18 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0;
             loseScreen.LoseScreenAppear();
         }
-        
-        if (collision.collider == pickMng.potionColl)
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.GetComponent<Collider>() == pickMng.potionColl)
         {
             pickMng.PickableRestartPosOnTouchPotion();
         }
-        
-        if (collision.collider == pickMng.invColl)
+
+        if (collision.GetComponent<Collider>() == pickMng.invColl)
         {
             pickMng.PickableRestartPosOnTouchInv();
         }
