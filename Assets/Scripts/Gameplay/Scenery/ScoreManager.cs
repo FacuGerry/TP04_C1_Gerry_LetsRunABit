@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    [SerializeField] private Sounds soundMng;
     [SerializeField] private ScoreSO scoreSO;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private AudioClip scoreSound;
+    [SerializeField] private TextMeshProUGUI invTimeText;
+    [SerializeField] private GameObject timerText;
+    [SerializeField] private InvMng invMng;
 
-    private AudioSource scoreAudio;
+    private AudioSource source;
 
     public float score;
 
     private void Start()
     {
         score = scoreSO.scoreInit;
-        scoreAudio = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -22,8 +25,11 @@ public class ScoreManager : MonoBehaviour
         score += Time.fixedDeltaTime * scoreSO.scoreMult;
         if ((score % 100) < 1 && score > 50)
         {
-            scoreAudio.PlayOneShot(scoreSound);
+            soundMng.PlayScore(source);
         }
         scoreText.text = score.ToString("0");
+
+        timerText.SetActive(invMng.goPlay);
+        invTimeText.text = invMng.timer.ToString("0");
     }
 }

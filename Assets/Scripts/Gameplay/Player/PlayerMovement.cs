@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,15 +6,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ObstaclesManager obsMng;
     [SerializeField] private PickableMng pickMng;
 
+    [Header("Player")]
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private LoseScreen loseScreen;
     [SerializeField] private GameObject floor;
     [SerializeField] private AudioClip jumpAudio;
     [SerializeField] private AnimationsPlayer animations;
+    [SerializeField] private TextMeshProUGUI life;
+
+    [Header("Xtra")]
+    [SerializeField] private Sounds soundMng;
+    [SerializeField] private InvMng invMng;
 
     private Rigidbody2D playerRb;
     private Collider2D floorColl;
-    private AudioSource playerAudio;
+    private AudioSource source;
 
     private bool isOnGround = true;
     public bool isInv = false;
@@ -22,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         floorColl = floor.GetComponent<Collider2D>();
-        playerAudio = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
         Physics2D.gravity = playerSO.gravity;
         Physics2D.gravity *= playerSO.gravityModifier;
 
@@ -33,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Jumping();
+        life.text = lives.ToString("0");
         if (lives == 0)
         {
             loseScreen.LoseScreenAppear();
@@ -57,17 +65,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision == pickMng.potionColl)
         {
             pickMng.PickableRestartPosOnTouchPotion();
             lives += 1;
+            soundMng.PlayPotion(source);
         }
 
         if (collision == pickMng.invColl)
         {
             pickMng.PickableRestartPosOnTouchInv();
             isInv = true;
+            soundMng.PlayInv(source);
+            invMng.goPlay = true;
         }
     }
 
@@ -76,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(playerSO.jump) && isOnGround && Time.timeScale == 1)
         {
             isOnGround = false;
-            playerAudio.PlayOneShot(jumpAudio);
+            source.PlayOneShot(jumpAudio);
             playerRb.AddForce(Vector2.up * playerSO.jumpForce, ForceMode2D.Impulse);
             animations.Jumping();
         }

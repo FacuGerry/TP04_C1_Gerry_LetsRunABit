@@ -44,7 +44,6 @@ public class ObstaclesManager : MonoBehaviour
     public void ObstaclesSpawn()
     {
         float dice = Random.value;
-        Debug.Log(dice);
 
         if (dice < 0.33f)
         {

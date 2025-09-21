@@ -57,7 +57,6 @@ public class PickableMng : MonoBehaviour
     public void PickableSpawn()
     {
         float dice = Random.value;
-        Debug.Log(dice);
 
         if (dice < 0.5f)
         {
