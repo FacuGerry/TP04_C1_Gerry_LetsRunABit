@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource source;
 
     private bool isOnGround = true;
-    public bool isInv = false;
     public int lives = 1;
     private void Awake()
     {
@@ -57,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             animations.Run();
         }
         
-        if (collision.collider == obsMng.spikeColl || collision.collider == obsMng.sawColl || collision.collider == obsMng.cactusColl && isInv == false) 
+        if ((collision.collider == obsMng.spikeColl || collision.collider == obsMng.sawColl || collision.collider == obsMng.cactusColl) && invMng.goPlay == false) 
         {
             lives -= 1;
         }
@@ -75,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision == pickMng.invColl)
         {
             pickMng.PickableRestartPosOnTouchInv();
-            isInv = true;
             soundMng.PlayInv(source);
             invMng.goPlay = true;
         }

@@ -24,7 +24,6 @@ public class InvMng : MonoBehaviour
             if (timer < 0)
             {
                 timer = maxTime;
-                playerMovement.isInv = false;
                 goPlay = false;
             }
         }
