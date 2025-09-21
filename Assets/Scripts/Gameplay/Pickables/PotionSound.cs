@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class PotionSound : MonoBehaviour
+public class PicakbleSound : MonoBehaviour
 {
+    [SerializeField] private PlayerMovement playerMvmnt;
     [SerializeField] private AudioClip song;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameObject player;
+    private Collider2D playerColl;
 
     private AudioSource source;
 
     private float timer;
-    public float initTime = 10f;
+    public float initTime = 9.5f;
 
     private bool music = true;
     private bool goPlay = false;
@@ -17,6 +20,7 @@ public class PotionSound : MonoBehaviour
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        playerColl = player.GetComponent<Collider2D>();
         timer = initTime;
         music = true;
         goPlay = false;
@@ -38,14 +42,20 @@ public class PotionSound : MonoBehaviour
         if (music)
         {
             mixer.SetFloat("GameVol", 0);
+            mixer.SetFloat("Jumping", 0);
+            playerMvmnt.isInv = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        music = false;
-        mixer.SetFloat("GameVol", -80);
-        goPlay = true;
-        source.PlayOneShot(song);
+        if (collision == playerColl)
+        {
+            music = false;
+            goPlay = true;
+            mixer.SetFloat("GameVol", -80);
+            mixer.SetFloat("Jumping", -80);
+            source.PlayOneShot(song);
+        }
     }
 }

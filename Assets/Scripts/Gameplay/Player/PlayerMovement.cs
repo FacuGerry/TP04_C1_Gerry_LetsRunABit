@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource playerAudio;
 
     private bool isOnGround = true;
-
+    public bool isInv = false;
+    public int lives = 1;
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -29,9 +30,15 @@ public class PlayerMovement : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Jumping();
+        if (lives == 0)
+        {
+            loseScreen.LoseScreenAppear();
+            gameObject.SetActive(false);
+            Time.timeScale = 0;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,26 +49,25 @@ public class PlayerMovement : MonoBehaviour
             animations.Run();
         }
         
-        if (collision.collider == obsMng.spikeColl || collision.collider == obsMng.sawColl || collision.collider == obsMng.cactusColl) 
+        if (collision.collider == obsMng.spikeColl || collision.collider == obsMng.sawColl || collision.collider == obsMng.cactusColl && isInv == false) 
         {
-            gameObject.SetActive(false);
-            Time.timeScale = 0;
-            loseScreen.LoseScreenAppear();
+            lives -= 1;
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.GetComponent<Collider>() == pickMng.potionColl)
+        if (collision == pickMng.potionColl)
         {
             pickMng.PickableRestartPosOnTouchPotion();
+            lives += 1;
         }
 
-        if (collision.GetComponent<Collider>() == pickMng.invColl)
+        if (collision == pickMng.invColl)
         {
             pickMng.PickableRestartPosOnTouchInv();
+            isInv = true;
         }
     }
 
@@ -69,10 +75,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(playerSO.jump) && isOnGround && Time.timeScale == 1)
         {
+            isOnGround = false;
             playerAudio.PlayOneShot(jumpAudio);
             playerRb.AddForce(Vector2.up * playerSO.jumpForce, ForceMode2D.Impulse);
             animations.Jumping();
-            isOnGround = false;
         }
     }
 }

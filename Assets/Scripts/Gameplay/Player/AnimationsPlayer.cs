@@ -9,7 +9,6 @@ public class AnimationsPlayer : MonoBehaviour
     {
         Run = 1,
         Jump = 2,
-        Invincible = 3,
     }
 
     [SerializeField] private PlayerState playerState;

@@ -4,7 +4,6 @@ public class PickableMng : MonoBehaviour
 {
     [SerializeField] private ObstaclesSO obsSO;
 
-    [Header("Obstacles")]
     public GameObject potion;
     public GameObject invincible;
 
