@@ -1935,7 +1935,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_52
+      name: A1
       rect:
         serializedVersion: 2
         x: 671
@@ -1956,7 +1956,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Objects_53
+      name: A2
       rect:
         serializedVersion: 2
         x: 689
@@ -5894,6 +5894,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       A: 2647608863696996709
+      A1: -4903146265661389270
+      A2: -8348929550629115275
       B: 3863864276438554331
       C: -4752947457354125345
       Objects_0: 7642980859614939925
@@ -6081,8 +6083,6 @@ TextureImporter:
       Objects_5: 2058049638561703503
       Objects_50: 3081797684678170146
       Objects_51: 8816747602095994496
-      Objects_52: -4903146265661389270
-      Objects_53: -8348929550629115275
       Objects_54: 6933252979370088074
       Objects_55: 868453856703549111
       Objects_56: -2675613229506035314
